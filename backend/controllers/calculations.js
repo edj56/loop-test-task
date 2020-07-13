@@ -1,5 +1,19 @@
 const calculate = (req, res) => {
-    res.json({ success: true, message: 'Test' });
+    if (req.body.items && req.body.items.length) {
+        const calculations = req.body.items.map(item => {
+            return ({
+                type: item.type,
+                value: req.calculator.calculate(item.type, item.value)
+            });
+        });
+
+        return res.json({
+            success: true,
+            calculations,
+        });
+    }
+
+    return res.json({ success: false, message: 'Wrong data!' });
 }
 
 

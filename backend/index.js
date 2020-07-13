@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const calculationsRoutes = require('./routes/calculations');
 
 const config = require('./config');
+const Calculator = require('./core/Calculator');
 
 const app = express();
 
@@ -12,6 +13,10 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+app.use((req, res, next) => {
+    req.calculator = new Calculator();
+    next();
+});
 
 app.use('/calculations', calculationsRoutes);
 
