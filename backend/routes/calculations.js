@@ -1,8 +1,8 @@
 const router = require('express').Router();
+const controller = require('../controllers/calculations');
 
 
-
-router.get('/', (_, res) => res.json({ success: true, message: 'Message' }));
+router.get('/', controller.calculate);
 
 
 module.exports = router;
