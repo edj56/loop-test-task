@@ -3,7 +3,7 @@ module.exports = {
         electricity: 'electricity',
         naturalGas: 'naturalGas',
         fuelOil: 'fuelOil',
-        LPG: 'lpg',
+        LPG: 'LPG',
         water: 'water',
     }
 }

@@ -19,7 +19,7 @@ const CalculatingService = {
 
 class Calculator {
     calculate(type, value) {
-        return CalculatingService[type](value);
+        return CalculatingService[type] ? CalculatingService[type](value) : value;
     }
 }
 
